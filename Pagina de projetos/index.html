@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfólio de Projetos</title>
+  <title>Portfólio de Projetos – Guilherme</title>
   <meta name="description" content="Coleção de projetos com busca e filtros, tudo em um único arquivo HTML." />
   <meta property="og:title" content="Portfólio de Projetos" />
   <meta property="og:description" content="Coleção de projetos com busca e filtros." />
@@ -109,6 +109,7 @@
       <div class="brand"><div class="logo" aria-hidden="true"></div> <span>Guilherme – Projetos</span></div>
       <div class="actions">
         <a class="btn" href="#projetos">Projetos</a>
+        <a class="btn" href="contatos.html">Contatos</a>
         <button id="toggleTema" class="toggle" aria-label="Alternar tema">🌗</button>
       </div>
     </div>
@@ -121,7 +122,7 @@
         <p>Coleção dos meus estudos e trabalhos em web, jogos, IoT e automações. Use a busca e os filtros para explorar.</p>
         <div class="cta">
           <a href="#projetos" class="btn-primary">Ver projetos</a>
-          <a href="#contato" class="btn-outline">Falar comigo</a>
+          <a href="contatos.html" class="btn-outline">Falar comigo</a>
         </div>
         <div class="stat">
           <div class="tile"><div class="big" id="countTotal">0</div><div class="small">Projetos</div></div>
@@ -180,6 +181,15 @@
 });
     // ===== Dados dos Projetos (edite aqui) =====
     const projetos = [
+      {
+        titulo: "Loja Online (PHP + MySQL)",
+        desc: "Cadastro de produtos, login de usuários e painel ADM.",
+        tags: ["PHP","MySQL","HTML","CSS","JavaScript"],
+        cat: ["web","apps"],
+        demo: "#",
+        code: "#",
+        img: "https://www1.satc.edu.br/portais/alunos/assets/img/logoSatc2024.svg"   // <-- coloque a imagem aqui
+      },
       {
         titulo: "Jogo 2D de Plataforma (Unity)",
         desc: "Inimigos, menu inicial e efeitos sonoros.",
