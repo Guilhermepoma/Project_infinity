@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Synergia Projects</title>
+    <title>Synergia</title>
+    <link rel="icon" type="image/png" href="imgs/logo.png">
+    <link rel="stylesheet" href="css/index_style.css">
 </head>
 <body>
-    <h1>Welcome to Synergia Projects Page</h1>
-    <p>This is a placeholder for the projects page.</p>
+    <!-- Canvas para o efeito Matrix -->
+    <canvas id="matrix-canvas"></canvas>
+    
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <!-- Header com navegação -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon"><img id="logo" src="imgs/logo.png"></span>
+                <span class="logo-text">Synergia</span>
+            </div>
+            <nav class="nav">
+                <a href="projetos.html" class="nav-link">Projetos</a>
+                <a href="contatos.html" class="nav-link">Contatos</a>
+            </nav>
+        </header>
+        
+        <!-- Conteúdo central -->
+        <main class="main-content">
+            <div class="hero-section">
+                <h1 class="hero-title">Am I finally a real hacker now, mom?</h1>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">Get Started</button>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/index_matrix.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,107 +9,7 @@
   <meta property="og:title" content="Portfólio de Projetos" />
   <meta property="og:description" content="Coleção de projetos com busca e filtros." />
   <meta name="color-scheme" content="light dark"/>
-  <style>
-
-    html.light {
-  --bg:#f6f7fb;
-  --panel:#ffffff;
-  --text:#0f172a;
-  --muted:#5b6671;
-  --chip:#eef2f7;
-  --shadow: 0 10px 28px rgba(16,24,40,.08);
-}
-/* Esse código aqui está uma merda pqp arrumem essa porra logo caraio */
-    :root{
-      --bg: #0b0c10;
-      --panel: #121318;
-      --text: #ecf0f1;
-      --muted:#9aa4ad;
-      --brand:#5A169E; /* roxo */
-      --brand-strong:#4B1282;
-      --chip:#1f2937;
-      --ring: rgba(90,22,158,.35);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-    }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg:#f6f7fb;
-        --panel:#ffffff;
-        --text:#0f172a;
-        --muted:#5b6671;
-        --chip:#eef2f7;
-        --shadow: 0 10px 28px rgba(16,24,40,.08);
-      }
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text)}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:min(1100px,92vw);margin:0 auto}
-
-    /* Header */
-    header{
-      position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.2) blur(6px);
-      background:color-mix(in oklab, var(--bg) 80%, transparent);
-      border-bottom:1px solid color-mix(in oklab, var(--text) 10%, transparent);
-    }
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;gap:12px;align-items:center;font-weight:700}
-
-    #logo{
-      width:32px;
-      height:32px;
-      border-radius:10px
-    }
-    
-    .nav a.btn{padding:10px 14px;border-radius:999px;background:var(--chip);border:1px solid color-mix(in oklab, var(--text) 10%, transparent)}
-    .nav .actions{display:flex;gap:8px}
-
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:38px 0}
-    .hero-card{background:var(--panel);border:1px solid color-mix(in oklab, var(--text) 10%, transparent);border-radius:calc(var(--radius) + 6px);padding:26px;box-shadow:var(--shadow)}
-    .hero h1{margin:0 0 10px;letter-spacing:-.02em;font-size:clamp(28px, 3.2vw, 40px)}
-    .hero p{margin:0;color:var(--muted)}
-    .hero .cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
-    .btn-primary{background:var(--brand);color:#ffffff;font-weight:700;border:none;padding:12px 16px;border-radius:14px;box-shadow:0 8px 18px var(--ring);cursor:pointer}
-    .btn-outline{background:transparent;color:var(--text);border:1px solid color-mix(in oklab, var(--text) 12%, transparent);padding:12px 16px;border-radius:14px;cursor:pointer}
-    .stat{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
-    .stat .tile{background:var(--panel);border:1px solid color-mix(in oklab, var(--text) 10%, transparent);border-radius:16px;padding:16px;text-align:center}
-    .stat .tile .big{font-size:24px;font-weight:800}
-
-    /* Controls */
-    .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0 8px}
-    .search{position:relative;flex:1 1 280px}
-    .search input{width:100%;padding:12px 16px 12px 42px;border-radius:14px;border:1px solid color-mix(in oklab, var(--text) 12%, transparent);background:var(--panel);color:var(--text);outline:none}
-    .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.6}
-    .chips{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{border:1px solid color-mix(in oklab, var(--text) 12%, transparent);padding:8px 12px;border-radius:999px;background:var(--chip);cursor:pointer}
-    .chip.active{outline:3px solid var(--ring);border-color:transparent}
-
-    /* Grid */
-    .grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:18px;margin:18px 0 50px}
-    @media (max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2, 1fr)}}
-    @media (max-width:620px){.grid{grid-template-columns:1fr}}
-
-    .card{background:var(--panel);border:1px solid color-mix(in oklab, var(--text) 10%, transparent);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .2s ease}
-    .card:hover{transform:translateY(-2px)}
-    .cover{aspect-ratio:16/9;display:grid;place-items:center;background:linear-gradient(135deg, color-mix(in oklab, var(--brand) 60%, #000 20%), transparent), radial-gradient(60% 80% at 80% 20%, color-mix(in oklab, var(--brand-strong) 60%, #000 10%), transparent 70%), #0a0b10}
-    .cover svg{opacity:.9}
-    .body{padding:16px;display:flex;flex-direction:column;gap:10px}
-    .title{font-weight:800;letter-spacing:-.01em}
-    .desc{color:var(--muted);font-size:15px}
-    .tags{display:flex;gap:8px;flex-wrap:wrap}
-    .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:var(--chip);border:1px dashed color-mix(in oklab, var(--text) 12%, transparent)}
-    .links{margin-top:auto;display:flex;gap:10px}
-    .link{flex:1;display:inline-flex;align-items:center;justify-content:center;border:1px solid color-mix(in oklab, var(--text) 12%, transparent);padding:10px;border-radius:12px}
-
-    footer{padding:26px 0;color:var(--muted);border-top:1px solid color-mix(in oklab, var(--text) 10%, transparent)}
-    .small{font-size:13px}
-
-    /* Toggle tema */
-    .toggle{border:1px solid color-mix(in oklab, var(--text) 12%, transparent);background:var(--panel);border-radius:999px;padding:8px 12px;cursor:pointer}
-  </style>
+  <link rel="stylesheet" href="css/projetos_style.css">
 </head>
 <body>
   <header>
@@ -120,6 +19,7 @@
       <span>Projetos</span>
     </div>
     <div class="actions">
+      <a class="btn" href="index.html">Home</a>
       <a class="btn" href="#projetos">Projetos</a>
       <a class="btn" href="contatos.html">Contatos</a>
       <button id="toggleTema" class="toggle" aria-label="Alternar tema">🌗</button>
@@ -169,126 +69,11 @@
 
       <div class="grid" id="grid"></div>
     </section>
-
-    <section id="contato" class="hero-card" style="margin-bottom:40px">
-      <h2 style="margin-top:0">Contato</h2>
-      <p class="small">Quer trocar uma ideia ou colaborar? Envie um e‑mail para <a href="mailto:guilherme@email.com">guilherme@email.com</a> ou me chame no WhatsApp.</p>
-    </section>
   </main>
 
   <footer>
     <div class="container small">© <span id="ano"></span> Guilherme – Portfólio. Feito com HTML, CSS e JS puros.</div>
   </footer>
-
-  <script>
-    // Tema
-    const toggle = document.getElementById("toggleTema");
-
-    // começa no modo escuro (sem a classe "light")
-    document.documentElement.classList.remove("light");
-
-    toggle.addEventListener("click", () => {
-        document.documentElement.classList.toggle("light");
-});
-    // ===== Dados dos Projetos (edite aqui) =====
-    const projetos = [
-      {
-        titulo: "Loja Online (PHP + MySQL)",
-        desc: "Cadastro de produtos, login de usuários e painel ADM.",
-        tags: ["PHP","MySQL","HTML","CSS","JavaScript"],
-        cat: ["web","apps"],
-        demo: "#",
-        code: "#",
-        img: "https://www1.satc.edu.br/portais/alunos/assets/img/logoSatc2024.svg"   // <-- coloque a imagem aqui
-      },
-      {
-        titulo: "Jogo 2D de Plataforma (Unity)",
-        desc: "Inimigos, menu inicial e efeitos sonoros.",
-        tags: ["Unity","C#","2D"],
-        cat: ["games"],
-        demo: "#",
-        code: "#",
-        img: "#"
-      },
-      {
-        titulo: "Minigame no Minecraft (1.21)",
-        desc: "Minigame criado com command blocks.",
-        tags: ["Minecraft","Command Blocks"],
-        cat: ["games"],
-        demo: "#",
-        code: "#",
-        img: "#"
-      },
-    ];
-  
-    // ===== Utilidades =====
-    const el = (sel, base=document)=> base.querySelector(sel);
-    const els = (sel, base=document)=> [...base.querySelectorAll(sel)];
-  
-    const grid = el("#grid");
-    const busca = el("#busca");
-    const chips = els(".chip");
-    const countTotal = el("#countTotal");
-    const countVisiveis = el("#countVisiveis");
-  
-    function cardTemplate(p){
-      const tags = p.tags.map(t=>`<span class="tag">${t}</span>`).join("");
-      return `
-        <article class="card" data-cat="${p.cat.join(" ")}" data-text="${(p.titulo+ " " + p.desc+ " " + p.tags.join(" ")).toLowerCase()}">
-          <div class="cover" aria-hidden="true">
-            ${p.img 
-              ? `<img src="${p.img}" alt="${p.titulo}" style="width:100%;height:100%;object-fit:cover">`
-              : `<svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7Z" stroke="currentColor" stroke-width="1.4"/>
-                  <path d="M8 14.5 10.8 12l2.4 2.3L16 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>`}
-          </div>
-          <div class="body">
-            <div class="title">${p.titulo}</div>
-            <div class="desc">${p.desc}</div>
-            <div class="tags">${tags}</div>
-            <div class="links">
-              <a class="link" href="${p.demo}" target="_blank" rel="noopener">Demo</a>
-              <a class="link" href="${p.code}" target="_blank" rel="noopener">Código</a>
-            </div>
-          </div>
-        </article>`;
-    }
-  
-    function render(){
-      grid.innerHTML = projetos.map(cardTemplate).join("");
-      countTotal.textContent = projetos.length;
-      filtrar();
-    }
-  
-    function filtrar(){
-      const ativo = el(".chip.active")?.dataset.filter || "all";
-      const termo = (busca.value || "").toLowerCase().trim();
-      let visiveis = 0;
-      els(".card", grid).forEach(card=>{
-        const byCat = ativo==="all" || card.dataset.cat.includes(ativo);
-        const byText = !termo || card.dataset.text.includes(termo);
-        const show = byCat && byText;
-        card.style.display = show ? "" : "none";
-        if(show) visiveis++;
-      });
-      countVisiveis.textContent = visiveis;
-    }
-  
-    chips.forEach(ch=>{
-      ch.addEventListener("click", ()=>{
-        chips.forEach(c=>c.classList.remove("active"));
-        ch.classList.add("active");
-        filtrar();
-      })
-    });
-    busca.addEventListener("input", filtrar);
-  
-    // Ano no rodapé
-    document.getElementById("ano").textContent = new Date().getFullYear();
-  
-    // Inicializa
-    render();
-  </script>
+  <script src="js/projetos.js"></script>
 </body>
 </html>
