@@ -1,3 +1,15 @@
+:root {
+  --radius: 15px;
+  --panel: rgba(20, 20, 20, 0.9);
+  --text: #ffffff;
+  --muted: #c4b5fd;
+  --brand: #9333ea;
+  --brand-strong: #7c3aed;
+  --status: #6ee7b7;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --ring: rgba(147, 51, 234, 0.3);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -26,6 +38,13 @@ body {
     height: 100%;
     z-index: -1;
     background: linear-gradient(135deg, #1a0033, #2d0066, #0a0a0a);
+}
+
+/* Seção Matrix */
+.matrix-section {
+    position: relative;
+    min-height: 100vh;
+    z-index: 1;
 }
 
 /* Efeito de vinheta */
@@ -153,6 +172,7 @@ body {
     transition: all 0.3s ease;
     font-weight: 600;
     min-width: 140px;
+    text-decoration: none;
 }
 
 .btn-primary {
@@ -177,6 +197,476 @@ body {
     background: rgba(147, 51, 234, 0.1);
     color: #9333ea;
     transform: translateY(-2px);
+}
+
+/* ========================= */
+/* SEÇÃO DE BIOGRAFIA        */
+/* ========================= */
+.biography-section {
+    margin: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.biography-card {
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid rgba(147, 51, 234, 0.3);
+    border-radius: var(--radius);
+    padding: 40px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.biography-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at 30% 50%,
+        rgba(147, 51, 234, 0.1) 0%,
+        rgba(147, 51, 234, 0.05) 30%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.biography-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.biography-text {
+    color: var(--text);
+}
+
+.biography-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #9333ea, #c084fc, #e879f9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+}
+
+.biography-role {
+    font-size: 1.2rem;
+    color: var(--brand);
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.biography-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.biography-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background: rgba(147, 51, 234, 0.2);
+    color: var(--brand);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(147, 51, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: rgba(147, 51, 234, 0.3);
+    transform: translateY(-2px);
+}
+
+.biography-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.biography-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 3px solid var(--brand);
+    box-shadow: 0 15px 35px rgba(147, 51, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+.biography-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 45px rgba(147, 51, 234, 0.6);
+}
+
+/* Responsividade para biografia */
+@media (max-width: 768px) {
+    .biography-card {
+        padding: 30px 20px;
+        margin: 0 20px;
+    }
+    
+    .biography-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .biography-name {
+        font-size: 2rem;
+    }
+    
+    .biography-role {
+        font-size: 1rem;
+    }
+    
+    .biography-description {
+        text-align: center;
+    }
+    
+    .biography-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .biography-skills {
+        justify-content: center;
+    }
+}
+
+/* ========================= */
+/* Profile Cards Grid        */
+/* ========================= */
+.profile-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+/* ------------------------- */
+/* Card Wrapper (3D effect)  */
+/* ------------------------- */
+.pc-card-wrapper {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --background-x: 50%;
+  --background-y: 50%;
+  --pointer-from-center: 0;
+  --pointer-from-top: 0;
+  --pointer-from-left: 0;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --card-opacity: 0.8;
+}
+
+.pc-card {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.pc-card.active { transition: none; }
+
+/* ------------------------- */
+/* Card Inside               */
+/* ------------------------- */
+.pc-inside {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--panel);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  box-shadow: var(--shadow);
+}
+
+.pc-inside::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      farthest-side circle at var(--pointer-x) var(--pointer-y),
+      hsla(158, 100%, 70%, var(--card-opacity)) 4%,
+      hsla(158, 50%, 60%, calc(var(--card-opacity) * 0.75)) 10%,
+      hsla(158, 25%, 50%, calc(var(--card-opacity) * 0.5)) 50%,
+      hsla(158, 0%, 40%, 0) 100%
+    ),
+    radial-gradient(35% 52% at 55% 20%, var(--brand) 0%, transparent 100%),
+    radial-gradient(100% 100% at 50% 50%, var(--brand-strong) 1%, transparent 76%);
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* ------------------------- */
+/* Efeitos de brilho         */
+/* ------------------------- */
+.pc-shine,
+.pc-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.pc-shine {
+  background: radial-gradient(
+    circle at var(--pointer-x) var(--pointer-y),
+    rgba(110, 231, 183, 0.3) 0%,
+    rgba(110, 231, 183, 0.1) 20%,
+    transparent 50%
+  );
+  opacity: calc(var(--pointer-from-center) * 0.5);
+}
+
+.pc-glare {
+  background: linear-gradient(
+    calc(var(--pointer-from-left) * 360deg),
+    rgba(110, 231, 183, 0.2) 0%,
+    transparent 50%
+  );
+  opacity: calc(var(--pointer-from-center) * 0.3);
+}
+
+/* ------------------------- */
+/* Conteúdo interno do card  */
+/* ------------------------- */
+.pc-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.pc-avatar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--brand);
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.pc-details {
+  text-align: center;
+  color: var(--text);
+}
+
+.pc-details h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.pc-details p {
+  font-size: 16px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ------------------------- */
+/* User Info dentro do card  */
+/* ------------------------- */
+.pc-user-info {
+  width: 100%;
+  background: color-mix(in oklab, var(--panel) 80%, var(--brand) 5%);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid color-mix(in oklab, var(--brand) 20%, transparent);
+}
+
+.pc-user-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.pc-mini-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 12px;
+  border: 2px solid var(--brand);
+}
+
+.pc-mini-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pc-user-text {
+  flex: 1;
+  color: var(--text);
+}
+
+.pc-handle {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.pc-status {
+  font-size: 12px;
+  opacity: 0.8;
+  color: var(--status);
+}
+
+.pc-contact-btn {
+  width: 100%;
+  background: var(--brand);
+  color: #052e1b;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 18px var(--ring);
+}
+
+.pc-contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px var(--ring);
+}
+
+.pc-contact-btn:active { transform: translateY(0); }
+
+/* Transição visual entre seções */
+.transition-overlay {
+    position: relative;
+    height: 100px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.1) 20%,
+        rgba(0, 0, 0, 0.3) 40%,
+        rgba(0, 0, 0, 0.5) 60%,
+        rgba(0, 0, 0, 0.7) 80%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    z-index: 1;
+    backdrop-filter: blur(2px);
+    transition: all 0.6s ease-in-out;
+}
+
+.black-section {
+    position: relative;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.95) 50%,
+        rgba(0, 0, 0, 1) 100%
+    );
+    backdrop-filter: blur(12px);
+    z-index: 2;
+    min-height: 100vh;
+    padding: 60px 0;
+    transition: all 0.8s ease-in-out;
+}
+
+/* Efeito de transição suave no scroll */
+.black-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    backdrop-filter: blur(8px);
+    z-index: -1;
+}
+
+/* ========================= */
+/* SEÇÃO SOBRE NÓS           */
+/* ========================= */
+.about-us-section {
+    position: relative;
+    z-index: 3;
+    padding: 40px 0;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #9333ea, #c084fc, #e879f9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #c4b5fd;
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* ========================= */
+/* CONTAINER                 */
+/* ========================= */
+/* ========================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Responsividade */
@@ -249,4 +739,3 @@ body {
         min-width: 120px;
     }
 }
-
